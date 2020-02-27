@@ -7,6 +7,9 @@ router.get('/about', pagesController.about);
 
 router.get('/frank', pagesController.frank);
 
+router.get('/products', pagesController.products);
+
 router.get('/*', pagesController.any);
+
 
 module.exports = router;
