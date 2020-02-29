@@ -11,7 +11,7 @@ router.post('/editProduct', pagesController.editProduct);
 
 router.get('/delete/:id', pagesController.delete);
 
-router.post('/find', pagesController.find);
+router.get('/find/:id', pagesController.find);
 
 router.get('/create', pagesController.create);
 

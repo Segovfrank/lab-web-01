@@ -83,10 +83,9 @@ exports.editProduct = (req, res, next) => {
 }
 
 exports.find = (req, res) => {
-    console.log(req.body.id);
     db('products')
     .select()
-    .where('id', '=', req.body.id)
+    .where('id', '=', req.params.id)
     .then(function(data){
         var product = data[0];
         res.render('pages/product', 
