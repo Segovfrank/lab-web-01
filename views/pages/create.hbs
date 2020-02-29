@@ -1,0 +1,58 @@
+  {{#if edit }}
+<h1 class="title">Editing {{{product.name}}}</h1>
+  {{else}}
+<h1 class="title">New product</h1>
+  {{/if}}
+
+  {{#if edit }}
+  <form action="/editProduct" method="POST">
+  {{else}}
+  <form action="/createProduct" method="POST">
+  {{/if}}
+
+  <label class="label">Name</label>
+  <div class="control has-icons-left has-icons-right">
+    {{#if edit }}
+        <input class="input" type="text" placeholder="Name" value="{{{product.name}}}" name="name" id="name">
+    {{else}}
+        <input class="input" type="text" placeholder="Name" name="name" id="name">
+    {{/if}}
+
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+  </div>
+      {{#if edit }}
+    <input class="input hide-element" type="number" placeholder="id" value="{{{product.id}}}" name="id" id="id">
+    {{/if}}
+
+    <label class="label">Description</label>
+   <div class="control has-icons-left has-icons-right">
+    {{#if edit }}
+    <input class="input" type="text" placeholder="Description" value="{{{product.description}}}"name="description" id="description">
+    {{else}}
+    <input class="input" type="text" placeholder="Description" name="description" id="description">
+    {{/if}}
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+  </div>
+    <label class="label">Price</label>
+   <div class="control has-icons-left has-icons-right">
+    {{#if edit }}
+    <input class="input" type="number" placeholder="Price" value="{{{product.price}}}" name="price" id="price">
+    {{else}}
+    <input class="input" type="number" placeholder="Price" name="price" id="price">
+    {{/if}}
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+  </div>
+      {{#if edit }}
+          <button type="submit" class="button is-warning is-rounded element-margin-top" >Edit</button>
+      {{else}}
+          <button type="submit" class="button is-success is-rounded element-margin-top" >Create</button>
+      {{/if}}
+
+</form>
+

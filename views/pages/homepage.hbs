@@ -1,2 +1,32 @@
-<h1>Hola</h1>
-<p>Raíz</p>
+<h1 class="title">Smartphones</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><title="Id">Id <div id="ascID">ASC</div></th>
+      <th><title="Name">Name</th>
+      <th><title="Description">Description</th>
+      <th><title="Price">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each products}}
+    <tr>
+      <th id="rowID">{{{this.id}}}</th>
+      <td><strong>{{{this.name}}}</strong></td>
+      <td>{{{this.description}}}</td>
+    <td>{{{this.price}}}</td>
+    <td>  
+        <a href="/edit/{{{this.id}}}"><span class="icon is-small"><i class="fas fa-pen"></i></span></a>
+    </td>
+    <td >  
+        <a id="deleteIcon" href="/delete/{{{this.id}}}"><span class="icon is-small"><i class="fas fa-trash-alt"></i></span></a>
+    </td>
+    </tr>
+        {{/each}}
+    
+  </tbody>
+</table>
+
+ <a href="/create" type="button" class="button is-success is-rounded" id="addProduct">
+    <span class="icon is-small"><i class="fas fa-plus"></i></span>&nbsp;&nbsp;Add product</a>

@@ -1,0 +1,11 @@
+button .btn-text{
+    margin-left: 8px;
+}
+
+.element-margin-top{
+    margin-top: 32px;
+}
+
+.hide-element{
+    visibility: hidden;
+}
