@@ -31,15 +31,9 @@ exports.any = (req, res) => {
     res.send('Any');
 }
 
-exports.frank = (req, res) => {
-    res.send('Frank');
-}
-
 exports.edit = (req, res) => {
-    //res.send('Edit');
     db.select().from('products').where('id', req.params.id).limit(1).then(function(data){
         let product = data[0];
-        //console.log(product)
         res.render('pages/create', 
         {
             title: product.name,
@@ -77,7 +71,6 @@ exports.editProduct = (req, res, next) => {
     let description = req.body.description;
     let price = req.body.price;
 
-
     db('products').update({
         'name' : name,
         'price' : price,
@@ -87,9 +80,23 @@ exports.editProduct = (req, res, next) => {
     .then(function(data) {
         res.redirect('/');
     });
-
 }
 
+exports.find = (req, res) => {
+    console.log(req.body.id);
+    db('products')
+    .select()
+    .where('id', '=', req.body.id)
+    .then(function(data){
+        var product = data[0];
+        res.render('pages/product', 
+        {
+            title: product.name,
+            product: product,
+            layout:'main'
+        });
+    });   
+}
 exports.products = (req, res) => {
     db.select().from('products').then(function(data){
         res.send(data);
